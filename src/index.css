@@ -5,9 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 244, 255);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.AppContainer {
+  margin: auto;
+  border-radius: 5px;
+  border-spacing: 0;
+  background: white;
+}
+
+
+.WorkoutSelection {
+  margin:  16px 0;
 }
