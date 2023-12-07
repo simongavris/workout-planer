@@ -3,7 +3,7 @@ import { Alert, Container, Grid, Typography, FormControlLabel, Checkbox, TextFie
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
-import HotelIcon from '@mui/icons-material/Hotel';
+import EmojiFoodBeverageOutlinedIcon from '@mui/icons-material/EmojiFoodBeverageOutlined';
 import AcUnitOutlinedIconfrom from '@mui/icons-material/AcUnitOutlined';
 import ThunderstormOutlinedIcon  from '@mui/icons-material/ThunderstormOutlined'; 
 import CloudOutlinedIcon  from '@mui/icons-material/CloudOutlined';
@@ -61,8 +61,8 @@ function App() {
   const handleSubmit = () => {
     // Here you'd call a real API or function, but for now, we'll just log to the console
     const exercisePlan = {
-      'Running': isRunningChecked ? runningFrequency : null,
-      'Weight Lifting': isWeightLiftingChecked ? weightLiftingFrequency : null,
+      'Joggen': isRunningChecked ? runningFrequency : null,
+      'Krafttraining': isWeightLiftingChecked ? weightLiftingFrequency : null,
       'Yoga': isYogaChecked ? yogaFrequency : null
     };
     console.log(exercisePlan);
@@ -86,7 +86,7 @@ function App() {
         }
     }
     while (activities.length <= 7) {
-      activities.push("Rest");
+      activities.push("Ruhetag");
     }
     
     for (let i = activities.length - 1; i > 0; i--) {
@@ -127,12 +127,14 @@ function App() {
     // Function to get the appropriate icon for the activity
     const getActivityIcon = (activity) => {
       switch (activity) {
-        case 'Rest':
-          return <HotelIcon />;
-        case 'Running':
+        case 'Ruhetag':
+          return <EmojiFoodBeverageOutlinedIcon />;
+        case 'Joggen':
           return <DirectionsRunIcon />;
-        case 'Weight Lifting':
+        case 'Krafttraining':
           return <FitnessCenterIcon />;
+        case 'Yoga':
+          return <SelfImprovementIcon/>;
         default:
           return null; // No icon if the activity is unknown
       }
@@ -174,12 +176,12 @@ function App() {
             <Grid container sx={{ padding: '20px 0' }}>
               <Grid item xs={12}>
                 <Typography variant="h4" component="h1" gutterBottom>
-                  Hello, Athlete!
+                  Hallo!
                 </Typography>
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="h6" gutterBottom>
-                  Choose your exercises for the next 7 days.
+                Wähle Trainingseinheiten für die nächsten 7 Tage.
                 </Typography>
               </Grid>
 
@@ -200,7 +202,7 @@ function App() {
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <DirectionsRunIcon sx={{ marginRight: 1 }} />
                           <Typography variant="body1" component="span">
-                            Running
+                            Joggen
                           </Typography>
                         </Box>
                       }
@@ -238,7 +240,7 @@ function App() {
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
                           <FitnessCenterIcon sx={{ marginRight: 1 }} />
                           <Typography variant="body1" component="span">
-                            Weight Lifting
+                            Krafttraining
                           </Typography>
                         </Box>
                       }
@@ -306,7 +308,7 @@ function App() {
             <Box>
               {totalFrequency > 7 && (
                 <Alert severity="warning" sx={{ mb: 2 }}>
-                  You can't select more than seven exercises per week.
+                  Bitte nicht mehr als 7 Trainingseinheiten pro Woche auswählen.
                 </Alert>
               )}
 
@@ -322,7 +324,7 @@ function App() {
                   marginBottom: '20px',
                 }}
               >
-                Plan The Next Seven Days
+                Plane die nächsten sieben Tage
               </Button>
             </Box>
           </Container>
@@ -347,7 +349,7 @@ function App() {
       >
         <Container maxWidth='xs' sx={{ width: '100%', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
           <Box sx={{ padding: '20px 0' }}>
-          <Typography variant="h4" component="h1" gutterBottom>Recommended Training Schedule</Typography>
+          <Typography variant="h4" component="h1" gutterBottom>Empfohlener Trainingsplan</Typography>
           <ScheduleList schedule={schedule} />
           </Box>
         <Box>
@@ -362,7 +364,7 @@ function App() {
               marginBottom: '20px',
             }}
           >
-            Back To Planning
+            Zurück zur Auswahl
           </Button>
         </Box>
         </Container>
